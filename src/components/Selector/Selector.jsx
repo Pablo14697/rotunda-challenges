@@ -15,7 +15,7 @@ const Selector = ({ onSelect }) => {
 
   useEffect(() => {
     if (scroll) {
-      scroll.current.scrollLeft += EMOJI_SIZE_PX;
+      scroll.current.scrollLeft += EMOJI_SIZE_PX * 2;
       setSmoothScrollClass("scroll-smooth");
     }
   }, []);
