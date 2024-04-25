@@ -43,7 +43,7 @@ const Selector = () => {
             key={index}
             disabled={!emoji}
           >
-            <span className="leading-[1.15] text-center text-[6rem] select-none">
+            <span className="leading-[1.15] text-center text-8xl select-none">
               {emoji}
             </span>
           </button>

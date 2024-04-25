@@ -1,3 +1,4 @@
+// Assets
 import { Send } from "./assets";
 
 const Input = () => {
@@ -13,7 +14,7 @@ const Input = () => {
         />
         <div className="h-3/6 border-[0.5px] border-gray-300 mx-2" />
         <button type="submit">
-          <img src={Send} className="h-10 w-10" />
+          <img src={Send} className="h-10 w-10" alt="Send" />
         </button>
       </div>
     </form>
