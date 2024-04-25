@@ -21,14 +21,12 @@ function App() {
       return EMOJIS.slice(1, EMOJIS.length - 1);
     }
     return EMOJIS;
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     setAnimal(emojis[isMobile ? 3 : 4]);
-  }, [isMobile]);
+  }, [isMobile, emojis]);
 
-  console.log(animal);
-  console.log(emojis);
   return (
     <div className="flex flex-col h-screen w-screen items-center justify-center overflow-hidden">
       <div className="flex flex-col gap-12 w-84 md:w-140">

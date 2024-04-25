@@ -24,7 +24,7 @@ const Selector = ({ list, onSelect }) => {
 
   useEffect(() => {
     onSelect(list[selected]);
-  }, [selected, onSelect]);
+  }, [selected, onSelect, list]);
 
   const onScroll = () => {
     if (selectorContainer) {
@@ -60,7 +60,7 @@ const Selector = ({ list, onSelect }) => {
       </div>
       <div
         ref={selectorContainer}
-        className="absolute z-0 top-0 left-28 min-h-28 min-w-28 max-h-28 max-w-28 bg-[rgba(0,0,0,0.1)] border-[2px] border-[rgba(0,0,0,0.05)] rounded-3xl select-none"
+        className="absolute z-0 top-0 left-28 min-h-28 min-w-28 max-h-28 max-w-28 bg-black-opacity-1 border-[2px] border-black-opacity-5 rounded-3xl select-none"
       />
     </div>
   );

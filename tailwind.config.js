@@ -10,6 +10,10 @@ module.exports = {
       fontSize: {
         "10xl": "10rem",
       },
+      colors: {
+        "black-opacity-10": "rgba(0,0,0,0.1)",
+        "black-opacity-5": "rgba(0,0,0,0.05)",
+      },
     },
   },
   plugins: [],
