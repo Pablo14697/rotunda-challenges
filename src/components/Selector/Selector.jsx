@@ -46,12 +46,12 @@ const Selector = ({ onSelect }) => {
       >
         {EMOJIS.map((emoji, index) => (
           <div
-            className="emoji cursor-pointer flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
-            key={index}
+            className="emoji cursor-grab flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
+            key={emoji.key}
             id={index}
           >
             <span className="leading-[1.15] text-center text-8xl select-none">
-              {emoji}
+              {emoji.text}
             </span>
           </div>
         ))}
