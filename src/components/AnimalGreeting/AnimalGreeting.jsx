@@ -21,10 +21,10 @@ const AnimalGreeting = ({ animal, greeting }) => {
   }, [greeting, animal.key]);
 
   return (
-    <div className="flex gap-[2rem] items-center justify-between w-full">
+    <div className="flex flex-col md:gap-8 items-center justify-center md:justify-between w-full md:flex-row">
       <span className="text-10xl">{animal.text}</span>
       <div className="relative flex items-center justify-center px-6 w-full h-64 bg-white rounded-3xl">
-        <div className="absolute -left-5 z-[-1]">
+        <div className="absolute -top-3 rotate-[-30deg] md:rotate-[0deg] md:top-auto md:-left-5 z-[-1]">
           <img src={Triangle} alt="Triangle" />
         </div>
         <span className="text-3xl">{greetingFormattedAsAnimal}</span>

@@ -6,8 +6,9 @@ const Input = ({ setGreeting }) => {
   const [value, setValue] = useState("");
   const onChange = (e) => {
     e.preventDefault();
-
-    setValue(e.target.value);
+    const value = e.target.value;
+    if (value.length > 30) return;
+    setValue(value);
   };
 
   const onSubmit = (e) => {
