@@ -9,7 +9,7 @@ const AnimalGreeting = ({ animal, greeting }) => {
   const removeExtraBlankSpaces = (str) => str.trim().replace(/\s+/g, " ");
 
   const greetingFormattedAsAnimal = useMemo(() => {
-    if (!greeting) return "";
+    if (!greeting) return "Hello! This animal will say what you type below";
     const greetingToFormat = removeExtraBlankSpaces(greeting);
     return `${greetingToFormat} `.replace(/ /g, ` ${animal.sound} `);
   }, [greeting, animal.sound]);
@@ -27,7 +27,9 @@ const AnimalGreeting = ({ animal, greeting }) => {
         <div className="absolute -top-3 rotate-[-30deg] md:rotate-[0deg] md:top-auto md:-left-5 z-[-1]">
           <img src={Triangle} alt="Triangle" />
         </div>
-        <span className="text-3xl">{greetingFormattedAsAnimal}</span>
+        <span className="text-center text-3xl">
+          {greetingFormattedAsAnimal}
+        </span>
       </div>
 
       <audio
