@@ -1,19 +1,15 @@
 // React
 import { useEffect, useRef, useState } from "react";
 
-// Constants
-import EMOJIS from "./constants";
-
 // Hooks
 import useIsMobile from "../../hooks/useIsMobile";
 
-const DEFAULT_EMOJI_SELECTED_INDEX = 3;
 const EMOJI_SIZE_PX = 112;
 
-const Selector = ({ onSelect }) => {
+const Selector = ({ list, onSelect }) => {
   const scroll = useRef(null);
   const selectorContainer = useRef(null);
-  const [selected, setSelected] = useState(DEFAULT_EMOJI_SELECTED_INDEX);
+  const [selected, setSelected] = useState(0);
 
   const isMobile = useIsMobile();
 
@@ -23,10 +19,11 @@ const Selector = ({ onSelect }) => {
       scroll.current.scrollLeft += EMOJI_SIZE_PX * placeToMove;
       scroll.current.style = "scroll-smooth";
     }
+    setSelected(isMobile ? 3 : 4);
   }, [isMobile]);
 
   useEffect(() => {
-    onSelect(EMOJIS[selected]);
+    onSelect(list[selected]);
   }, [selected, onSelect]);
 
   const onScroll = () => {
@@ -49,7 +46,7 @@ const Selector = ({ onSelect }) => {
         className={`absolute z-10 w-full flex items-center overflow-y-hidden overflow-x-scroll snap-x snap-mandatory`}
         onScroll={onScroll}
       >
-        {EMOJIS.map((emoji, index) => (
+        {list.map((emoji, index) => (
           <div
             className="emoji cursor-grab flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
             key={emoji.key}

@@ -1,5 +1,5 @@
 // React
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 // Components
 import { AnimalGreeting, Input, Selector } from "./components";
@@ -16,15 +16,24 @@ function App() {
 
   const isMobile = useIsMobile();
 
+  const emojis = useMemo(() => {
+    if (isMobile) {
+      return EMOJIS.slice(1, EMOJIS.length - 1);
+    }
+    return EMOJIS;
+  }, []);
+
   useEffect(() => {
-    setAnimal(EMOJIS[isMobile ? 5 : 6]);
+    setAnimal(emojis[isMobile ? 3 : 4]);
   }, [isMobile]);
 
+  console.log(animal);
+  console.log(emojis);
   return (
     <div className="flex flex-col h-screen w-screen items-center justify-center overflow-hidden">
       <div className="flex flex-col gap-12 w-84 md:w-140">
         <AnimalGreeting animal={animal} greeting={greeting} />
-        <Selector onSelect={setAnimal} />
+        <Selector list={emojis} onSelect={setAnimal} />
         <Input setGreeting={setGreeting} />
       </div>
     </div>

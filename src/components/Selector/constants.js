@@ -1,5 +1,9 @@
 const EMOJIS = [
   {
+    key: "blank-1",
+    text: "",
+  },
+  {
     key: "blank-2",
     text: "",
   },
@@ -48,6 +52,10 @@ const EMOJIS = [
 
   {
     key: "blank-3",
+    text: "",
+  },
+  {
+    key: "blank-4",
     text: "",
   },
 ];
