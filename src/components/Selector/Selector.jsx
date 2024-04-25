@@ -7,7 +7,7 @@ import EMOJIS from "./constants";
 const DEFAULT_EMOJI_SELECTED_INDEX = 4;
 const EMOJI_SIZE_PX = 112;
 
-const Selector = () => {
+const Selector = ({ onSelect }) => {
   const scroll = useRef(null);
   const [selected, setSelected] = useState(DEFAULT_EMOJI_SELECTED_INDEX);
   const [smoothScrollClass, setSmoothScrollClass] = useState("");
@@ -19,7 +19,7 @@ const Selector = () => {
     }
   }, []);
 
-  const onSelect = (index) => {
+  const onSelectItem = (index) => {
     if (!EMOJIS[index]) return;
     const multiplying = index > selected ? 1 : -1;
 
@@ -27,6 +27,10 @@ const Selector = () => {
     scroll.current.scrollLeft +=
       multiplying * Math.abs((selected - index) * EMOJI_SIZE_PX);
   };
+
+  useEffect(() => {
+    onSelect(EMOJIS[selected]);
+  }, [selected, onSelect]);
 
   return (
     <div className="relative h-28 w-full">
@@ -38,7 +42,7 @@ const Selector = () => {
         {EMOJIS.map((emoji, index) => (
           <button
             type="button"
-            onClick={() => onSelect(index)}
+            onClick={() => onSelectItem(index)}
             className="flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
             key={index}
             disabled={!emoji}
