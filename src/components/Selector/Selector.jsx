@@ -29,11 +29,11 @@ const Selector = () => {
   };
 
   return (
-    <div className="relative w-140 h-28 ">
+    <div className="relative h-28 w-full">
       <div
         id="scroll"
         ref={scroll}
-        className={`absolute w-full h-full flex items-center overflow-y-hidden  overflow-x-scroll ${smoothScrollClass} snap-x snap-mandatory`}
+        className={`absolute w-full flex items-center overflow-y-hidden  overflow-x-scroll ${smoothScrollClass} snap-x snap-mandatory`}
       >
         {EMOJIS.map((emoji, index) => (
           <button
