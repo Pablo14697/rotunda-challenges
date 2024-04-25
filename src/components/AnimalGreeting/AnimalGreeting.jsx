@@ -4,9 +4,10 @@ import { useEffect, useMemo, useRef } from "react";
 // Assets
 import { Triangle } from "./assets";
 
-const AnimalGreeting = ({ animal, animalSound = "miau", greeting }) => {
+const AnimalGreeting = ({ animal, animalSound = "grrrr", greeting }) => {
   const audio = useRef(null);
   const removeExtraBlankSpaces = (str) => str.trim().replace(/\s+/g, " ");
+
   const greetingFormattedAsAnimal = useMemo(() => {
     if (!greeting) return "";
     const greetingToFormat = removeExtraBlankSpaces(greeting);
@@ -14,10 +15,11 @@ const AnimalGreeting = ({ animal, animalSound = "miau", greeting }) => {
   }, [greeting, animalSound]);
 
   useEffect(() => {
-    if (audio) {
+    if (audio && greeting) {
       audio.current.play();
     }
-  }, [greeting, animal]);
+  }, [greeting]);
+
   return (
     <div className="flex gap-[2rem] items-center justify-between w-full">
       <span className="text-10xl">{animal}</span>
@@ -30,7 +32,7 @@ const AnimalGreeting = ({ animal, animalSound = "miau", greeting }) => {
 
       <audio className="absolute invisible" ref={audio} controls>
         <source
-          type="audio/wav"
+          type="audio/mp3"
           src="https://www.google.com/logos/fnbx/animal_sounds/lion.mp3"
         />
       </audio>
