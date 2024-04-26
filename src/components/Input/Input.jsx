@@ -18,7 +18,7 @@ const Input = ({ setGreeting }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex items-center justify-between h-20 w-full bg-white rounded-3xl px-10">
+      <div className="flex items-center justify-between h-16 md:h-20 w-full bg-white rounded-3xl px-4">
         <input
           type="text"
           className="flex w-full h-full outline-none text-2xl"

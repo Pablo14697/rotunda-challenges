@@ -28,11 +28,13 @@ function App() {
   }, [isMobile, emojis]);
 
   return (
-    <div className="flex flex-col h-screen w-screen items-center justify-center overflow-hidden">
-      <div className="flex flex-col gap-12 w-84 md:w-140">
+    <div className="flex flex-col h-screen w-screen items-center overflow-hidden">
+      <div className="flex flex-col justify-around h-full gap-12 w-84 md:w-140">
         <AnimalGreeting animal={animal} greeting={greeting} />
-        <Selector list={emojis} onSelect={setAnimal} />
-        <Input setGreeting={setGreeting} />
+        <div className="flex flex-col w-full gap-4">
+          <Selector list={emojis} onSelect={setAnimal} />
+          <Input setGreeting={setGreeting} />
+        </div>
       </div>
     </div>
   );
