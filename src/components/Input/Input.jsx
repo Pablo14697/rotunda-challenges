@@ -4,6 +4,7 @@ import { Send } from "./assets";
 
 const Input = ({ setGreeting }) => {
   const [value, setValue] = useState("");
+
   const onChange = (e) => {
     e.preventDefault();
     const value = e.target.value;
