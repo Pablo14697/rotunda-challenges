@@ -15,7 +15,7 @@ const AnimalGreeting = ({ animal, greeting }) => {
   }, [greeting, animal.sound]);
 
   useEffect(() => {
-    if (audio && greeting) {
+    if (audio.current && greeting) {
       audio.current.play();
     }
   }, [greeting, animal.key]);
