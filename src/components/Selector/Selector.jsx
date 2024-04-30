@@ -3,6 +3,10 @@ import { useEffect, useRef, useState } from "react";
 
 // Hooks
 import useIsMobile from "../../hooks/useIsMobile";
+import useDraggable from "./hooks/useDraggable";
+
+// Styles
+import "./mask.css";
 
 const EMOJI_SIZE_PX = 112;
 
@@ -39,16 +43,18 @@ const Selector = ({ list, onSelect }) => {
     }
   };
 
+  useDraggable();
+
   return (
-    <div className="relative h-28 w-full">
+    <div className="scroll relative h-28 w-full">
       <div
         ref={scroll}
-        className={`absolute z-10 w-full flex items-center overflow-y-hidden overflow-x-scroll snap-x snap-mandatory`}
+        className="draggable-container absolute z-10 w-full flex items-center overflow-y-hidden overflow-x-scroll snap-x snap-mandatory"
         onScroll={onScroll}
       >
         {list.map((emoji, index) => (
           <div
-            className="emoji cursor-grab flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
+            className="emoji flex flex-column items-center justify-center snap-start min-h-28 min-w-28 max-h-28 max-w-28  outline-none"
             key={emoji.key}
             id={index}
           >
