@@ -15,8 +15,7 @@
     "prepare": "husky",
     "prettier": "prettier --write .",
     "lint": "eslint .",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +40,6 @@
     "@eslint/js": "^9.1.1",
     "eslint": "^8.19.0",
     "eslint-plugin-react": "^7.34.1",
-    "gh-pages": "^6.1.1",
     "globals": "^15.0.0",
     "husky": "^9.0.11",
     "prettier": "3.2.5",
